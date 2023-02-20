@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,6 +47,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
+
         objectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 URL,
@@ -62,7 +64,7 @@ public class ProductListActivity extends AppCompatActivity {
                         }
                         ProductAdapter productAdapter = new ProductAdapter(this, products);
                         recyclerView.setAdapter(productAdapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }

@@ -7,9 +7,10 @@
     tools:context=".Activity.ProductListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/product_list_bar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#2196F3">
+        android:background="#1c6cd5">
 
         <TextView
             android:layout_width="match_parent"
@@ -23,14 +24,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         class="android.support.v7.app.AlertController$RecycleListView"
+        android:layout_width="403dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"/>
-
+        android:layout_marginBottom="8dp" />
 
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.mobiletestapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
         return new myViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
 //        Picasso
@@ -51,7 +53,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
                 .load("https://i.imgur.com/DvpvklR.png")
                 .into(holder.imageView);
         holder.nameTextView.setText(products.get(position).getName());
-        holder.priceTextView.setText(products.get(position).getPrice());
+        holder.priceTextView.setText(products.get(position).getPrice()  + " руб.");
         holder.articleTextView.setText(products.get(position).getArticle());
     }
 

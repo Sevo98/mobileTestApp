@@ -29,14 +29,15 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/article"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:textColor="#716C6C"
             android:layout_alignParentStart="true"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:layout_marginTop="150dp"
-            android:text="Name: "
+            android:layout_marginTop="25dp"
+            android:text="Article: "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
@@ -45,13 +46,13 @@
             app:layout_constraintVertical_bias="0.294" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_marginTop="5dp"
             android:layout_alignParentStart="true"
-            android:text="Price: "
+            android:text="Name: "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,13 +60,14 @@
             app:layout_constraintVertical_bias="0.858" />
 
         <TextView
-            android:id="@+id/article"
+            android:id="@+id/price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginTop="5dp"
-            android:text="Article: "
+            android:text="Price: "
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.512"

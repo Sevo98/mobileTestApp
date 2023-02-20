@@ -1,16 +1,17 @@
-package com.example.mobiletestapp;
+package com.example.mobiletestapp.Model;
 
 public class Product {
-    private String id, name, price, article;
+    private String id, name, price, article, image;
 
     public Product() {
     }
 
-    public Product(String id, String name, String price, String article) {
+    public Product(String id, String name, String price, String article, String image) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.article = article;
+        this.image = image;
     }
 
     public String getId() {
@@ -43,5 +44,13 @@ public class Product {
 
     public void setArticle(String article) {
         this.article = article;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

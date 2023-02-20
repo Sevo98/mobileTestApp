@@ -1,4 +1,4 @@
-package com.example.mobiletestapp;
+package com.example.mobiletestapp.Adapter;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,21 +11,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mobiletestapp.Model.Product;
+import com.example.mobiletestapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHolder> {
 
     Context mContext;
 
-    List<Product> mData;
+    List<Product> products;
 
     Uri imageUri = Uri.parse("https://i.imgur.com/DvpvklR.png");
 
-    public Adapter(Context mContext, List<Product> mData) {
+    public ProductAdapter(Context mContext, List<Product> products) {
         this.mContext = mContext;
-        this.mData = mData;
+        this.products = products;
     }
 
     @NonNull
@@ -39,15 +41,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-//        holder.imageView.setImageURI(imageUri);
-        holder.nameTextView.setText(mData.get(position).getName());
-        holder.priceTextView.setText(mData.get(position).getPrice());
-        holder.articleTextView.setText(mData.get(position).getArticle());
+//        Picasso
+//                .get()                                    //получаемые изображения пустые
+//                .load(products.get(position).getImage())
+//                .into(holder.imageView);
+
+        Picasso
+                .get()
+                .load("https://i.imgur.com/DvpvklR.png")
+                .into(holder.imageView);
+        holder.nameTextView.setText(products.get(position).getName());
+        holder.priceTextView.setText(products.get(position).getPrice());
+        holder.articleTextView.setText(products.get(position).getArticle());
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return products.size();
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
@@ -57,11 +67,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
 
         public myViewHolder(View itemView) {
             super(itemView);
-//            Picasso
-//                    .get()
-//                    .load("https://i.imgur.com/DvpvklR.png")
-//                    .into(imageView);
-
+            imageView = itemView.findViewById(R.id.imageView);
             nameTextView = itemView.findViewById(R.id.name);
             priceTextView = itemView.findViewById(R.id.price);
             articleTextView = itemView.findViewById(R.id.article);

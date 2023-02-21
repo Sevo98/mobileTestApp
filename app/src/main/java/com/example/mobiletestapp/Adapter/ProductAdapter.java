@@ -43,18 +43,36 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-//        Picasso
+
+//        if (products.get(position).getImage() != null) {
+//
+//                    Picasso
 //                .get()                                    //получаемые изображения пустые
 //                .load(products.get(position).getImage())
 //                .into(holder.imageView);
-
+//        } else {holder.imageView.setImageResource(R.drawable.baseline_image_24);}
         Picasso
                 .get()
-                .load("https://i.imgur.com/DvpvklR.png")
+                .load("https://merclondon.ru/upload/resize_cache/iblock/ebe/280_357_0/NEDDY_red_new_3.jpg")
                 .into(holder.imageView);
-        holder.nameTextView.setText(products.get(position).getName());
-        holder.priceTextView.setText(products.get(position).getPrice()  + " руб.");
-        holder.articleTextView.setText(products.get(position).getArticle());
+
+        if (products.get(position).getPrice() != null) {
+            holder.nameTextView.setText(products.get(position).getName());
+        } else {holder.nameTextView.setText("Название товара уточняется");}
+
+
+        if (products.get(position).getPrice() != null) {
+            holder.priceTextView.setText(products.get(position).getPrice() + " руб.");
+        } else {
+            holder.priceTextView.setText("Цена уточняется");
+        }
+
+        if (products.get(position).getArticle() != null) {
+            holder.articleTextView.setText(products.get(position).getArticle());
+        } else {
+            holder.articleTextView.setText("Артикль уточняется");
+        }
+
     }
 
     @Override

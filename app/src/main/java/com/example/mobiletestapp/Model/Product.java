@@ -1,7 +1,9 @@
 package com.example.mobiletestapp.Model;
 
+import android.annotation.SuppressLint;
+
 public class Product {
-    private String id, name, price, article, image;
+    private String id, name, price, article, image, rankPrice;
 
     int wholePartPrice, fractionalPartPrice;
 
@@ -22,6 +24,11 @@ public class Product {
         this.wholePartPrice = (int) tempPrice;
 
         this.fractionalPartPrice = (int) ((tempPrice - this.wholePartPrice) * 100);
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void DivisionPrice(int wholePartPrice) {
+        this.rankPrice = String.format( "%,d", wholePartPrice);
     }
 
     public String getId() {
@@ -78,5 +85,13 @@ public class Product {
 
     public void setFractionalPartPrice(int fractionalPartPrice) {
         this.fractionalPartPrice = fractionalPartPrice;
+    }
+
+    public String getRankPrice() {
+        return rankPrice;
+    }
+
+    public void setRankPrice(String rankPrice) {
+        this.rankPrice = rankPrice;
     }
 }

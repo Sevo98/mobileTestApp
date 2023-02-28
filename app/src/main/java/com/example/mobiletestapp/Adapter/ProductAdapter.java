@@ -65,7 +65,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
 
         if (products.get(position).getPrice() != null) {
             products.get(position).SeparationPrice(products.get(position).getPrice());
-            holder.priceTextView.setText(products.get(position).getWholePartPrice() + " руб. " + products.get(position).getFractionalPartPrice() + " коп.");
+            products.get(position).DivisionPrice(products.get(position).getWholePartPrice());
+            holder.priceTextView.setText(products.get(position).getRankPrice() + " руб. " + products.get(position).getFractionalPartPrice() + " коп.");
         } else {
             holder.priceTextView.setText("Цена уточняется");
         }

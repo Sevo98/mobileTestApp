@@ -23,7 +23,9 @@ public class Product {
 
         this.wholePartPrice = (int) tempPrice;
 
-        this.fractionalPartPrice = (int) ((tempPrice - this.wholePartPrice) * 1000);
+        double fractionalPartPrice = ((tempPrice - this.wholePartPrice) * 100);
+
+        this.fractionalPartPrice = (int) Math.round(fractionalPartPrice);
     }
 
     @SuppressLint("DefaultLocale")

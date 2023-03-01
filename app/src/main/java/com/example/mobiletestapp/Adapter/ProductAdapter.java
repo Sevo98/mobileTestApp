@@ -12,11 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.mobiletestapp.Model.Product;
 import com.example.mobiletestapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHolder> {
 
@@ -43,18 +48,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
+        ImageView imageView;
 
-//        if (products.get(position).getImage() != null) {
-//
-//                    Picasso
-//                .get()                                    //получаемые изображения пустые
-//                .load(products.get(position).getImage())
+        if (products.get(position).getImage() != null) {
+
+            Picasso
+                    .get()                                    //получаемые изображения пустые
+                    .load(products.get(position).getImage())
+                    .error(R.drawable.baseline_image_24)
+                    .into(holder.imageView);
+        } else {
+            holder.imageView.setImageResource(R.drawable.baseline_image_24);
+        }
+//        Picasso
+//                .get()
+//                .load("https://merclondon.ru/upload/resize_cache/iblock/ebe/280_357_0/NEDDY_red_new_3.jpg")
 //                .into(holder.imageView);
-//        } else {holder.imageView.setImageResource(R.drawable.baseline_image_24);}
-        Picasso
-                .get()
-                .load("https://merclondon.ru/upload/resize_cache/iblock/ebe/280_357_0/NEDDY_red_new_3.jpg")
-                .into(holder.imageView);
 
         if (products.get(position).getPrice() != null) {
             holder.nameTextView.setText(products.get(position).getName());
@@ -84,7 +93,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
         return products.size();
     }
 
-    public class myViewHolder extends RecyclerView.ViewHolder {
+    public static class myViewHolder extends RecyclerView.ViewHolder {
 
         TextView nameTextView, priceTextView, articleTextView;
         ImageView imageView;

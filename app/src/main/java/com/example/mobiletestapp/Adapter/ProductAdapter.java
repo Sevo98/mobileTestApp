@@ -12,10 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.mobiletestapp.Model.Product;
 import com.example.mobiletestapp.R;
 import com.squareup.picasso.Picasso;
@@ -48,12 +44,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.myViewHo
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        ImageView imageView;
-
         if (products.get(position).getImage() != null) {
 
             Picasso
-                    .get()                                    //получаемые изображения пустые
+                    .get()                                    // получаемые изображения пустые
                     .load(products.get(position).getImage())
                     .error(R.drawable.baseline_image_24)
                     .into(holder.imageView);

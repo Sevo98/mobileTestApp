@@ -2,6 +2,7 @@ package com.example.mobiletestapp.Activity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -66,7 +67,9 @@ public class ProductListActivity extends AppCompatActivity {
                         recyclerView.setAdapter(productAdapter);
                         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
                     } catch (JSONException e) {
-                        throw new RuntimeException(e);
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "Ошибка получения данных о товарах", Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                 },
                 error -> Log.e("Rest Response Error", error.toString())
